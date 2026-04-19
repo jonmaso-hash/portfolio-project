@@ -2,51 +2,46 @@ from django.shortcuts import render
 from .forms import contactForm
 from django.core.mail import send_mail 
 
-# Create your views here.
 def about_me_view(request):
     return render(request, 'pages/about_me.html')
 
-def experince(request):
-    return render(request, 'pages/experince.html')
+def experience(request):
+    return render(request, 'pages/experience.html')
 
 def contact_view(request):
-    return render(request, 'pages/contact.html')
-
-def contact_view(request):
-    # means the from is submitted an not empty 
-    # to send email
     if request.method == 'POST':
         form = contactForm(request.POST)
-        #collect the data from teh form and send email
+
         if form.is_valid():
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
 
-            #Build the full email content
-            message_body =(
-                f'You have a new email from your portfolio \n'
-                f'Name: {name} \n'
-                f'Email: {email} \n'
-                f'Message: {message} \n'
+            message_body = (
+                f'You have a new email from your portfolio\n'
+                f'Name: {name}\n'
+                f'Email: {email}\n'
+                f'Message: {message}\n'
             )
+
             try:
-                # Send the email using Django's send_mail function
                 send_mail(
-                    "Email From Portfolio", #subject
-                    message_body, #message
-                    email, #from email
+                    "Email From Portfolio",
+                    message_body,
+                    email,
                     ['jonmaso@gmail.com'],
                 )
-                form = contactForm()
-                return render(request, 'pages/contact.html', {'form': form})
+                print("Email sent successfully")
+                form = contactForm()  # reset form after success
+
             except Exception as e:
                 print(f'Error sending email: {e}')
-                return render(request, 'pages/contact.html', {'form': form})
-            else: 
-                print ("Form is not valid")
-                print (form.errors)
-                return render(request, 'pages/contact.html', {'form': form})
+
+        else:
+            print("Form is not valid")
+            print(form.errors)
+
     else:
         form = contactForm()
-        return render(request, 'pages/contact.html', {'form': form})
+
+    return render(request, 'pages/contact.html', {'form': form})

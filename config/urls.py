@@ -1,3 +1,4 @@
+
 """
 URL configuration for config project.
 
@@ -23,6 +24,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls), 
     path('', include('pages.urls')),
-    path('', include('projects.url')),
+    path('', include('projects.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

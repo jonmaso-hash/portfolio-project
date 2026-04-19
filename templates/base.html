@@ -26,7 +26,7 @@
           <a class="nav-link" href="{% url 'projects'%}">Projects</a>
         </li>
         <li class="nav-item">
-         <a class="nav-link" href="{% url 'experince' %}">Experience</a>
+         <a class="nav-link" href="{% url 'experience' %}">Experience</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="{% url 'contact' %}"S>Contact</a>
@@ -47,8 +47,40 @@
      </main>
 
      <!--Footer-->
-     <footer>
+     <footer class="bg-dark text-light pt-5 pb-4">
+  <div class="container text-md-left">
+    <div class="row text-md-left">
 
-     </footer>
+      <!-- Links -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Links</h5>
+        <p><a href="{% url 'about_me' %}" class="text-light text-decoration-none">About</a></p>
+        <p><a href="{% url 'experience' %}" class="text-light text-decoration-none">Experince</a></p>
+        <p><a href="{% url 'projects' %}" class="text-light text-decoration-none">Projects</a></p>
+        <p><a href="{% url 'contact' %}" class="text-light text-decoration-none">Contact</a></p>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
+        <p><i class="bi bi-house"></i> San Diego, Californa </p>
+        <p><i class="bi bi-envelope"></i> jonmaso@gmail.com</p>
+        <p><i class="bi bi-phone"></i> 619-802-6910</p>
+      </div>
+
+    </div>
+
+    <hr class="mb-4">
+
+    <!-- Copyright -->
+    <div class="row align-items-center">
+      <div class="col-md-7 col-lg-8">
+        <p> Professional Portfolio | 2026</p>
+      </div>
+
+    </div>
+
+  </div>
+</footer>
 </body>
 </html>
